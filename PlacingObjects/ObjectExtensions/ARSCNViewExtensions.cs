@@ -81,12 +81,22 @@ namespace PlacingObjects
 			}
 
 			var frame = ViewController.CurrentFrame;
-			if (frame == null || frame.Camera == null || frame.Camera.Transform == null)
+			if (frame?.Camera?.Transform == null)
 			{
 				return null;
 			}
 
-			var cameraPos = SCNVector3Extensions.PositionFromTransform(frame.Camera.Transform);
+		    SCNVector3 cameraPos;
+		    try
+		    {
+                //TODO: why iPhone 7 plus crash on this?
+		        cameraPos = SCNVector3Extensions.PositionFromTransform(frame.Camera.Transform);
+		    }
+		    catch (Exception)
+		    {
+		        return null;
+		    }
+
 
 			// Note: z: 1.0 will unproject() the screen position to the far clipping plane.
 			var positionVec = new SCNVector3((float)point.X, (float)point.Y, 1.0f);

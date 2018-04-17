@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,6 +9,8 @@
     <RootNamespace>PlacingObjects</RootNamespace>
     <AssemblyName>PlacingObjects</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,9 +69,9 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
-    <MtouchProfiling>false</MtouchProfiling>
+    <MtouchProfiling>true</MtouchProfiling>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <IOSDebuggerPort>56606</IOSDebuggerPort>
@@ -77,9 +79,18 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
+    <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+    <MtouchSdkVersion>11.3</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -87,84 +98,199 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\add.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\add.imageset\add%402x.png" />
-    <ImageAsset Include="Assets.xcassets\add.imageset\add%403x.png" />
-    <ImageAsset Include="Assets.xcassets\addPressed.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\addPressed.imageset\addPressed%402x.png" />
-    <ImageAsset Include="Assets.xcassets\addPressed.imageset\addpressed%403x.png" />
-    <ImageAsset Include="Assets.xcassets\buttonring.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\buttonring.imageset\ring%402x.png" />
-    <ImageAsset Include="Assets.xcassets\buttonring.imageset\ring%403x.png" />
-    <ImageAsset Include="Assets.xcassets\candle.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\candle.imageset\candle%402x.png" />
-    <ImageAsset Include="Assets.xcassets\candle.imageset\candle%403x.png" />
-    <ImageAsset Include="Assets.xcassets\chair.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chair.imageset\chair%402x.png" />
-    <ImageAsset Include="Assets.xcassets\chair.imageset\chair%403x.png" />
-    <ImageAsset Include="Assets.xcassets\cup.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\cup.imageset\cup%402x.png" />
-    <ImageAsset Include="Assets.xcassets\cup.imageset\cup%403x.png" />
-    <ImageAsset Include="Assets.xcassets\lamp.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\lamp.imageset\tableLamp%402x.png" />
-    <ImageAsset Include="Assets.xcassets\lamp.imageset\tableLamp%403x.png" />
-    <ImageAsset Include="Assets.xcassets\restart.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\restart.imageset\refresh%402x.png" />
-    <ImageAsset Include="Assets.xcassets\restart.imageset\refresh%403x.png" />
-    <ImageAsset Include="Assets.xcassets\restartPressed.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\restartPressed.imageset\refreshPressed%402x.png" />
-    <ImageAsset Include="Assets.xcassets\restartPressed.imageset\refreshPressed%403x.png" />
-    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%402x.png" />
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%403x.png" />
-    <ImageAsset Include="Assets.xcassets\settingsPressed.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\settingsPressed.imageset\settingsPressed%402x.png" />
-    <ImageAsset Include="Assets.xcassets\settingsPressed.imageset\settingsPressed%403x.png" />
-    <ImageAsset Include="Assets.xcassets\shutter.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\shutter.imageset\shutter%402x.png" />
-    <ImageAsset Include="Assets.xcassets\shutter.imageset\shutter%403x.png" />
-    <ImageAsset Include="Assets.xcassets\shutterPressed.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\shutterPressed.imageset\shutterPressed%402px.png" />
-    <ImageAsset Include="Assets.xcassets\shutterPressed.imageset\shutterPressed%403x.png" />
-    <ImageAsset Include="Assets.xcassets\vase.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\vase.imageset\vase%402x.png" />
-    <ImageAsset Include="Assets.xcassets\vase.imageset\vase%403x.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamagon.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-83.5%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-76%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-40%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-29.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-29%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-60%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-60%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-29%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x" />
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\add.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\add.imageset\add%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\add.imageset\add%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\addPressed.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\addPressed.imageset\addPressed%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\addPressed.imageset\addpressed%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\buttonring.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\buttonring.imageset\ring%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\buttonring.imageset\ring%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\candle.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\candle.imageset\candle%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\candle.imageset\candle%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chair.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chair.imageset\chair%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chair.imageset\chair%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\cup.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\cup.imageset\cup%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\cup.imageset\cup%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lamp.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lamp.imageset\tableLamp%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lamp.imageset\tableLamp%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\restart.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\restart.imageset\refresh%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\restart.imageset\refresh%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\restartPressed.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\restartPressed.imageset\refreshPressed%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\restartPressed.imageset\refreshPressed%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settingsPressed.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settingsPressed.imageset\settingsPressed%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settingsPressed.imageset\settingsPressed%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\shutter.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\shutter.imageset\shutter%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\shutter.imageset\shutter%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\shutterPressed.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\shutterPressed.imageset\shutterPressed%402px.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\shutterPressed.imageset\shutterPressed%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\vase.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\vase.imageset\vase%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\vase.imageset\vase%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamagon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-app-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-spotlight-29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="VirtualObjects\" />
-    <Folder Include="UIElements\" />
-    <Folder Include="Utilities\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="ObjectExtensions\" />
     <Folder Include="Assets.xcassets\AddIcon.imageset\" />
     <Folder Include="Assets.xcassets\AddPressedIcon.imageset\" />
+    <Folder Include="Assets.xcassets\ARKitLogo.imageset\" />
+    <Folder Include="Assets.xcassets\BlueCrosshair.imageset\" />
     <Folder Include="Assets.xcassets\ButtonRingIcon.imageset\" />
+    <Folder Include="Assets.xcassets\cacaca.imageset\" />
     <Folder Include="Assets.xcassets\ChairIcon.imageset\" />
     <Folder Include="Assets.xcassets\CupIcon.imageset\" />
+    <Folder Include="Assets.xcassets\Environment.imageset\" />
+    <Folder Include="Assets.xcassets\EnvironmentBlur.imageset\" />
     <Folder Include="Assets.xcassets\LampIcon.imageset\" />
+    <Folder Include="Assets.xcassets\PlaneGrid.imageset\" />
     <Folder Include="Assets.xcassets\RestartIcon.imageset\" />
     <Folder Include="Assets.xcassets\RestartPressedIcon.imageset\" />
     <Folder Include="Assets.xcassets\SettingsIcon.imageset\" />
@@ -172,17 +298,7 @@
     <Folder Include="Assets.xcassets\ShutterIcon.imageset\" />
     <Folder Include="Assets.xcassets\ShutterPressedIcon.imageset\" />
     <Folder Include="Assets.xcassets\VaseIcon.imageset\" />
-    <Folder Include="Assets.xcassets\BlueCrosshair.imageset\" />
     <Folder Include="Assets.xcassets\YellowCrosshair.imageset\" />
-    <Folder Include="Assets.xcassets\PlaneGrid.imageset\" />
-    <Folder Include="Enumerations\" />
-    <Folder Include="Assets.xcassets\ARKitLogo.imageset\" />
-    <Folder Include="Assets.xcassets\Environment.imageset\" />
-    <Folder Include="Assets.xcassets\EnvironmentBlur.imageset\" />
-    <Folder Include="Assets.xcassets\cacaca.imageset\" />
-    <Folder Include="Assets.xcassets\XamarinLogo.imageset\" />
-    <Folder Include="Assets.xcassets\XamarinLogo.imageset\" />
-    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -330,4 +446,11 @@
     <BundleResource Include="Resources\VirtualObjects.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
 </Project>
